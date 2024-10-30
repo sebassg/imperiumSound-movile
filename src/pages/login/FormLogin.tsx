@@ -1,8 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { API } from "../../config";
-
 
 interface FormData {
   userName: string;
@@ -41,27 +39,23 @@ export default function FormLogin() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData), 
+        credentials: "include",
+        body: JSON.stringify(formData),
       });
 
-      if (!response.ok) { 
+      if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Login failed");
       }
 
-      const data = await response.json();
+
+
       
-
-      // Set the token in a cookie (note: httpOnly cannot be set from client-side JS)
-      Cookies.set('access_token', data.token, {
-        expires: 1,
-       
-        sameSite: 'strict',
-      });
-      navigate('/')
-
+      
+     
+      navigate("/");
     } catch (error) {
-      setError((error as Error).message); // Corrected error handling
+      setError((error as Error).message); 
     } finally {
       setLoading(false);
     }
@@ -90,7 +84,7 @@ export default function FormLogin() {
             <div className="mt-2">
               <input
                 id="userName"
-                name="userName" 
+                name="userName"
                 type="text"
                 required
                 autoComplete="username"
@@ -136,4 +130,3 @@ export default function FormLogin() {
     </div>
   );
 }
-

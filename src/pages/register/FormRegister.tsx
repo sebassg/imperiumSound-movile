@@ -59,8 +59,7 @@ export default function FormRegister() {
         throw new Error(errorData.error || "Create failed");
       }
 
-      const data = await response.json();
-      console.log(data);
+     
       
 
     } catch (error) {
@@ -68,6 +67,7 @@ export default function FormRegister() {
     } finally {
       setLoading(false);
       navegate('/login')
+      
     }
   };
 

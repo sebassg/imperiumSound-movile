@@ -1,10 +1,6 @@
-
 import { API } from "../config";
 
-
-
 export const validToken = async () => {
-  console.log(API)
   try {
     const response = await fetch(`${API}/valid`, {
       method: "GET",
@@ -12,18 +8,26 @@ export const validToken = async () => {
         "Content-Type": "application/json",
       },
       credentials: "include",
-    });  
+    });
 
-    const data = await response.json();
-    console.log(data);
+    if (!response.ok) {
+      let errorMessage = "Error desconocido";
 
-    if (response.ok) {
-      const user = { ...data}
-      
-      return {user}
+      try {
+        const errorData = await response.json();
+        errorMessage = errorData.message || errorMessage;
+        return null;
+      } catch (e) {
+        console.log(e)
+      }
+
+      throw new Error(`Error de validación del token: ${errorMessage}`);
     }
-  } catch (error) {
-    console.error("Error al verificar el token:", error);
-    return null
+
+    const data = await response.json(); 
+    return { ...data }; 
+  } catch (e) {
+    
+    return { error: e }; 
   }
 };

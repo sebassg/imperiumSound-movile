@@ -16,7 +16,7 @@ export default function Home() {
     const result = await validToken(); 
     if (result) { 
       const { user } = result; 
-      console.log("holaaa",result); 
+    
       setUser(user);
     }
   };

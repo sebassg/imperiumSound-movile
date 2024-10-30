@@ -3,6 +3,14 @@ import { useEffect, useState } from "react";
 import NoiseLevelMeter from "./Microfono";
 import { validToken } from "../../components/Token";
 
+interface UserType {
+ 
+  idUser: string;
+  userName: string;
+  nombre: string
+ 
+}
+
 function RegistroSonoro() {
     
     const [user, setUser] = useState<UserType | null>(null);
@@ -11,7 +19,7 @@ function RegistroSonoro() {
         const result = await validToken(); 
         if (result) { 
           const { user } = result; 
-          console.log("holaaa",result); 
+          
           setUser(user);
         }
       };
@@ -19,11 +27,13 @@ function RegistroSonoro() {
       useEffect(() => {
         tokenEffect();
       }, []);
+
+      const nombre = user?.nombre
   
   return (
     <>
       <NoiseLevelMeter />
-      <h1>hola</h1>
+      <h1>hola {nombre}</h1>
     </>
   );
 }
