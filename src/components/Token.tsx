@@ -1,7 +1,6 @@
 import { API } from "../config";
 
 export const validToken = async () => {
-  console.log('api:', API)
   try {
     const response = await fetch(`${API}/valid`, {
       method: "GET",
@@ -10,7 +9,6 @@ export const validToken = async () => {
       },
       credentials: "include",
     });
-    console.log('respuesta api:',response.json())
 
     if (!response.ok) {
       let errorMessage = "Error desconocido";
