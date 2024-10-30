@@ -1,8 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavOption from "./NavOption";
+import { validToken } from "./Token";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [islog, setIslog] = useState(false);
+
+  const tokenEffect = async () => {
+    const result = await validToken();
+    console.log(result);
+
+    
+    if (!result) {
+      setIslog(true)
+      
+    }
+    setIslog(false)
+   
+  };
+
+  useEffect(() => {
+    tokenEffect();
+  }, []);
+
+  const perfil = islog? "Perfil" : "Registrarse" ;
+  const registrosSonoros = islog? "Registros sonoros" : "Iniciar Sesión" ;
+  const perfilRut = islog? "/perfil" : "/register" ;
+  const registrosSonorosRut = islog? "/registrosSonoros" : "/login" ;
+
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -25,8 +50,8 @@ const Navbar = () => {
             <NavOption titulo="Sobre nosotros" spot={false} ruta="/" />
             <NavOption titulo="Servicios" spot={false} ruta="/" />
             <NavOption titulo="Contacto" spot={false} ruta="/" />
-            <NavOption titulo="Iniciar Sesión" spot={false} ruta="/login" />
-            <NavOption titulo="Registrarse" spot={false} ruta="/register" />
+            <NavOption titulo={registrosSonoros} spot={false} ruta={registrosSonorosRut} />
+            <NavOption titulo={perfil} spot={false} ruta={perfilRut} />
           </div>
           <button
             onClick={toggleMenu}

@@ -3,10 +3,13 @@ import NavOption from "./NavOption";
 
 const NavbarLock = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+
 
   return (
     <div className="flex">
@@ -22,11 +25,11 @@ const NavbarLock = () => {
           </h1>
           <div className="mt-6 space-y-2">
             <NavOption titulo="Inicio" spot={false} ruta="/" />
-            <NavOption titulo="Sobre nosotros" spot={false} ruta="/" />
-            <NavOption titulo="Servicios" spot={false} ruta="/" />
-            <NavOption titulo="Contacto" spot={false} ruta="/" />
-            <NavOption titulo="Iniciar Sesión" spot={false} ruta="/login" />
-            <NavOption titulo="Registrarse" spot={false} ruta="/register" />
+            <NavOption titulo="Sobre nosotros" spot={false} ruta="/sobre-nosotros" />
+            <NavOption titulo="Servicios" spot={false} ruta="/servicios" />
+            <NavOption titulo="Contacto" spot={false} ruta="/contacto" />
+            <NavOption titulo="Registros sonoros" spot={false} ruta="/registrosSonoros" />
+            <NavOption titulo="Perfil" spot={false} ruta="/" />
           </div>
           <button
             onClick={toggleMenu}
