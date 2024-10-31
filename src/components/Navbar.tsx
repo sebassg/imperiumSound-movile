@@ -1,12 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavOption from "./NavOption";
+import { validToken } from "./Token";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLogin, setIslogin] = useState(false)
+
+  const validLogin = async () => {
+    const result = await validToken()
+    
+    if (!result){
+      console.log('token no valido')
+      setIslogin(false)
+      return
+    }
+    console.log('token Navbar:',result)
+    setIslogin(true)
+
+  }
+
+  useEffect(() => {
+    validLogin();
+  }, [])
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const login = isLogin? 'Perfil' : 'Registrarse'
+  const loginRut = isLogin? '/' : '/register'
+  const loginSon = isLogin? 'Registros sonoros' : 'Iniciar Sesión'
+  
 
   return (
     <div className="flex">
@@ -25,8 +49,8 @@ const Navbar = () => {
             <NavOption titulo="Sobre nosotros" spot={false} ruta="/" />
             <NavOption titulo="Servicios" spot={false} ruta="/" />
             <NavOption titulo="Contacto" spot={false} ruta="/" />
-            <NavOption titulo="Iniciar Sesión" spot={false} ruta="/login" />
-            <NavOption titulo="Registrarse" spot={false} ruta="/register" />
+            <NavOption titulo={loginSon} spot={false} ruta="/login" />
+            <NavOption titulo={login} spot={false} ruta={loginRut} />
           </div>
           <button
             onClick={toggleMenu}
