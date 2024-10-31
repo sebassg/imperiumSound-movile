@@ -1,36 +1,44 @@
 import { useEffect, useState } from "react";
 import NavOption from "./NavOption";
 import { validToken } from "./Token";
+import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const [isOpen, setIsOpen] = useState(false);
-  const [isLogin, setIslogin] = useState(false)
+  const [isLogin, setIslogin] = useState(false);
 
   const validLogin = async () => {
-    const result = await validToken()
+    const result = await validToken();
     
-    if (!result){
-      console.log('token no valido')
-      setIslogin(false)
-      return
+    if (!result) {
+      console.log('token no valido');
+      setIslogin(false);
+      return;
     }
-    console.log('token Navbar:',result)
-    setIslogin(true)
+    console.log('token Navbar:', result);
+    setIslogin(true);
+  };
 
-  }
+  const logout = () => {
+    // Elimina la cookie 'access_token'
+    Cookies.remove('access_token');
+   
+    navigate("/"); 
+  };
 
   useEffect(() => {
     validLogin();
-  }, [])
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const login = isLogin? 'Perfil' : 'Registrarse'
-  const loginRut = isLogin? '/' : '/register'
-  const loginSon = isLogin? 'Registros sonoros' : 'Iniciar Sesión'
-  const loginSonRut = isLogin? '/registrosSonoros' : '/login'
+  const loginSon = isLogin ? 'Registros sonoros' : 'Iniciar Sesión';
+  const loginSonRut = isLogin ? '/registrosSonoros' : '/login';
 
   return (
     <div className="flex">
@@ -40,7 +48,7 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         } sm:hidden`}
       >
-        <div className="flex flex-col h-full ">
+        <div className="flex flex-col h-full">
           <h1 className="text-2xl font-bold text-gray-800 p-4">
             ImperiumSound
           </h1>
@@ -50,7 +58,13 @@ const Navbar = () => {
             <NavOption titulo="Servicios" spot={false} ruta="/" />
             <NavOption titulo="Contacto" spot={false} ruta="/" />
             <NavOption titulo={loginSon} spot={false} ruta={loginSonRut} />
-            <NavOption titulo={login} spot={false} ruta={loginRut} />
+            {!isLogin ? (
+              <NavOption titulo="Registrarse" spot={false} ruta="/register" />
+            ) : (
+              <a onClick={logout} className="block text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md">
+                Cerrar sesión
+              </a>
+            )}
           </div>
           <button
             onClick={toggleMenu}
@@ -86,34 +100,19 @@ const Navbar = () => {
       <div className="hidden sm:flex sm:items-center sm:justify-between bg-white shadow p-4 w-full">
         <h1 className="text-2xl font-bold text-gray-800">ImperiumSound</h1>
         <div className="space-x-4">
-          <a
-            href="#"
-            className="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md"
-          >
-            Inicio
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md"
-          >
-            Sobre nosotros
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md"
-          >
-            Servicios
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md"
-          >
-            Contacto
-          </a>
+          <NavOption titulo="Inicio" spot={false} ruta="/" />
+          <NavOption titulo="Sobre nosotros" spot={false} ruta="/" />
+          <NavOption titulo="Servicios" spot={false} ruta="/" />
+          <NavOption titulo="Contacto" spot={false} ruta="/" />
+          {!isLogin ? (
+            <NavOption titulo="Registrarse" spot={false} ruta="/register" />
+          ) : (
+            <a onClick={logout} className="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md">
+              Cerrar sesión
+            </a>
+          )}
         </div>
       </div>
-
-      {/* Contenido principal */}
     </div>
   );
 };
