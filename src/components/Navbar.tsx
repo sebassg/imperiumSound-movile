@@ -30,7 +30,7 @@ const Navbar = () => {
   const login = isLogin? 'Perfil' : 'Registrarse'
   const loginRut = isLogin? '/' : '/register'
   const loginSon = isLogin? 'Registros sonoros' : 'Iniciar Sesión'
-  
+  const loginSonRut = isLogin? '/registrosSonoros' : '/login'
 
   return (
     <div className="flex">
@@ -49,7 +49,7 @@ const Navbar = () => {
             <NavOption titulo="Sobre nosotros" spot={false} ruta="/" />
             <NavOption titulo="Servicios" spot={false} ruta="/" />
             <NavOption titulo="Contacto" spot={false} ruta="/" />
-            <NavOption titulo={loginSon} spot={false} ruta="/login" />
+            <NavOption titulo={loginSon} spot={false} ruta={loginSonRut} />
             <NavOption titulo={login} spot={false} ruta={loginRut} />
           </div>
           <button

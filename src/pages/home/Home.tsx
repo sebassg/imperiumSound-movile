@@ -3,14 +3,21 @@ import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import { validToken } from "../../components/Token";
 
+
 interface UserType {
   idUser: string;
   nombre: string;
   userName: string;
 }
 
+
+
 export default function Home() {
+
+
   const [user, setUser] = useState<UserType | null>(null);
+
+  
 
   const tokenEffect = async () => {
     const result = await validToken(); 
@@ -23,6 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     tokenEffect();
+    
   }, []);
 
   const userName = user?.userName
