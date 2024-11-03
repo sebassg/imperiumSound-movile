@@ -18,7 +18,7 @@ const Navbar = () => {
       setIslogin(false);
       return;
     }
-    console.log('token Navbar:', result);
+    
     setIslogin(true);
   };
 

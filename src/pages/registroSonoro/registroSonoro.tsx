@@ -64,11 +64,11 @@ function RegistroSonoro() {
               Crear registro
             </button>
           </div>
+<div>
 
-          {/* Contenedor para el componente renderizado */}
-          <div className="p-6 rounded-lg w-full max-w-md bg-white shadow-md">
             {renderizarComponente()}
-          </div>
+</div>
+
         </div>
       </div>
     </>

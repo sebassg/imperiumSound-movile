@@ -69,11 +69,13 @@ const NoiseLevelMeter = () => {
   };
 
   return (
+    <div className="p-6 rounded-lg w-full max-w-md bg-white shadow-md">
+
     <div className="flex flex-col items-center">
       <div 
         className={`bg-purple-800 rounded-full w-48 h-48 flex items-center justify-center shadow-2xl mb-4 cursor-pointer transition duration-300 ${isMeasuring ? "animate-pulse" : ""}`}
         onClick={toggleMeasuring}
-      >
+        >
         <span className={`text-3xl font-light text-white text-center ${isMeasuring ? "opacity-100" : "opacity-60"}`}>
           {isMeasuring ? `${decibelMayor} dB` : "Toca para comenzar"}
         </span>
@@ -81,6 +83,7 @@ const NoiseLevelMeter = () => {
       <h2 className="text-xl text-gray-700">Nivel de ruido actual: {decibels} dB</h2>
       {isMeasuring ? <p className="text-green-600">Midiendo...</p> : <p className="text-red-600">Medición completada</p>}
     </div>
+        </div>
   );
 };
 
