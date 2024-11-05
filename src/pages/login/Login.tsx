@@ -25,7 +25,7 @@ function Login() {
 
   useEffect(() => {
     tokenEffect();
-  }, [navigate]);
+  }, []);
 
   return (
     <>
