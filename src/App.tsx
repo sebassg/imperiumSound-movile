@@ -3,7 +3,7 @@ import Login from './pages/login/Login';
 import Home from './pages/home/Home';
 import "./App.css";
 import Register from './pages/register/Register';
-import RegistroSonoro from './pages/registroSonoro/RegistroSonoro';
+import RegistroSonoro from './pages/registroSonoro/RegistroSonoro.tsx';
 
 function App() {
   return (
