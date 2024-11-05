@@ -5,6 +5,7 @@ import "./App.css";
 import Register from './pages/register/Register';
 import RegistroSonoro from './pages/registroSonoro/RegistroSonoro';
 
+
 function App() {
   return (
     <Router>
