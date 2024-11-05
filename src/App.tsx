@@ -3,7 +3,7 @@ import Login from './pages/login/Login';
 import Home from './pages/home/Home';
 import "./App.css";
 import Register from './pages/register/Register';
-import RegistroSonoro from './pages/registroSonoro/RegistroSonoro.tsx';
+import RegistroSonoroIndex from './pages/registroSonoro/RegistroSonoroIndex.tsx';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/registrosSonoros' element={<RegistroSonoro />} />
+        <Route path='/registrosSonoros' element={<RegistroSonoroIndex />} />
       </Routes>
     </Router>
   );

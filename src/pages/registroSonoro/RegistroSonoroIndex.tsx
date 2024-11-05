@@ -10,7 +10,7 @@ interface UserType {
   nombre: string;
 }
 
-function RegistroSonoro() {
+function RegistroSonoroIndex() {
   const [user, setUser] = useState<UserType | null>(null);
   const [mostrarComponente, setMostrarComponente] = useState<"crear" | "misRegistros">("crear");
 
@@ -75,4 +75,4 @@ function RegistroSonoro() {
   );
 }
 
-export default RegistroSonoro;
+export default RegistroSonoroIndex;
