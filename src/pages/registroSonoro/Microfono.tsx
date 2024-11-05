@@ -83,6 +83,7 @@ const NoiseLevelMeter = () => {
       <h2 className="text-xl text-gray-700">Nivel de ruido actual: {decibels} dB</h2>
       {isMeasuring ? <p className="text-green-600">Midiendo...</p> : <p className="text-red-600">Medición completada</p>}
     </div>
+    
         </div>
   );
 };
