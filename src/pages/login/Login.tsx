@@ -19,7 +19,7 @@ function Login() {
 
    
     if (result) {
-      navigate("/");
+      navigate("/home");
     }
   };
 

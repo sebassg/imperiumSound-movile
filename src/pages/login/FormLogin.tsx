@@ -53,7 +53,7 @@ export default function FormLogin() {
       
       
      
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       setError((error as Error).message); 
     } finally {
