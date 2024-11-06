@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import NavOption from "./NavOption";
 import { validToken } from "./Token";
 import { useNavigate } from "react-router-dom";
-import Cookies from 'js-cookie';
+import { API } from "../config";
+
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -23,12 +24,21 @@ const Navbar = () => {
   };
 
   const logout = () => {
-    // Elimina la cookie 'access_token'
-    Cookies.remove('access_token');
-   
-    navigate("/"); 
+    fetch(`${API}/logout`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.message); // Opcional: ver si el backend confirma la eliminación
+      navigate("/login");
+    })
+    .catch(error => console.error('Error al cerrar sesión:', error));
   };
-
+  
   useEffect(() => {
     validLogin();
   }, []);

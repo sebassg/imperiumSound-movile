@@ -12,11 +12,13 @@ interface UserType {
 
 function RegistroSonoroIndex() {
   const [user, setUser] = useState<UserType | null>(null);
-  const [mostrarComponente, setMostrarComponente] = useState<"crear" | "misRegistros">("crear");
+  const [mostrarComponente, setMostrarComponente] = useState<
+    "crear" | "misRegistros"
+  >("crear");
 
   const tokenEffect = async () => {
-    const result = await validToken(); 
-    if (result) { 
+    const result = await validToken();
+    if (result) {
       setUser(result);
     }
   };
@@ -40,9 +42,9 @@ function RegistroSonoroIndex() {
 
   return (
     <>
-      <div className="bg-gray-100 min-h-screen flex flex-col">
+      <div className="bg-gray-300 min-h-screen flex flex-col">
         <Navbar />
-        
+
         <div className="flex-grow flex flex-col items-center justify-start p-4">
           {/* Mensaje de bienvenida */}
           <h1 className="text-2xl font-bold text-gray-800 mb-4">
@@ -51,24 +53,20 @@ function RegistroSonoroIndex() {
 
           {/* Contenedor para los botones */}
           <div className="flex space-x-4 mb-6">
-            <button 
+            <button
               onClick={() => setMostrarComponente("misRegistros")}
               className="bg-purple-600 text-white py-2 px-4 rounded-lg shadow hover:bg-purple-700 transition duration-200"
             >
               Mis registros
             </button>
-            <button 
+            <button
               onClick={() => setMostrarComponente("crear")}
               className="bg-blue-600 text-white py-2 px-4 rounded-lg shadow hover:bg-blue-700 transition duration-200"
             >
               Crear registro
             </button>
           </div>
-<div>
-
-            {renderizarComponente()}
-</div>
-
+          <div>{renderizarComponente()}</div>
         </div>
       </div>
     </>
