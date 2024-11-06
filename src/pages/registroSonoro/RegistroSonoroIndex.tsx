@@ -42,7 +42,7 @@ function RegistroSonoroIndex() {
 
   return (
     <>
-      <div className="bg-gray-300 min-h-screen flex flex-col">
+      <div className="bg-gray-200 min-h-screen flex flex-col">
         <Navbar />
 
         <div className="flex-grow flex flex-col items-center justify-start p-4">
