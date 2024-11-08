@@ -1,6 +1,6 @@
 import "../index.css";
 import { Volume2, LineChart, Globe, CheckCircle, Headphones, Target } from "lucide-react"
-
+import Navbar from "./Navbar";
 const services = [
   {
     title: "Control de ruido",
@@ -36,22 +36,25 @@ const services = [
 
 export default function ComponentServicios() {
   return ( <>
-    <div className="min-h-screen bg-gradient-to-br from-purple-950 to-indigo-950 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#0c041c] to-[#10041c] py-8 px-4 ">
+      <div className="fixed top-0 left-0 w-full z-10">
+      <Navbar></Navbar>
+      </div>
       <div className="max-w-md mx-auto">
         <h1 className="text-4xl font-bold text-white text-center mb-8">
           SERVICIOS
         </h1>
         
-        <div className="space-y-4">
+        <div className="space-y-4 ">
           {services.map((service, index) => (
-              <div 
+            <div 
               key={index}
               className="relative bg-indigo-950/50 rounded-3xl p-6 backdrop-blur-sm transform transition-transform hover:scale-102 hover:shadow-lg"
-              >
+            >
               <div className="flex flex-col items-center gap-6">
-                <div className="w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center">
-                  <div className="bg-white rounded-full p-6">
-                    <service.icon className="w-8 h-8 text-purple-600" />
+                <div className="w-24 h-24 bg-[#d8d8d8] rounded-full flex items-center justify-center">
+                  <div className="bg-[#1c0c34] rounded-full p-6">
+                    <service.icon className="w-8 h-8 text-[#d8d8d8]" />
                   </div>
                 </div>
                 
@@ -68,12 +71,11 @@ export default function ComponentServicios() {
           ))}
         </div>
 
-        {}
+        {/* Efectos flotantes */}
         <div className="fixed top-20 left-4 w-2 h-2 bg-purple-500 rounded-full opacity-50" />
         <div className="fixed bottom-10 right-6 w-2 h-2 bg-indigo-400 rounded-full opacity-30" />
         <div className="fixed top-40 right-8 w-3 h-3 bg-purple-400 rounded-full opacity-20" />
       </div>
     </div>
-          </>
-  )
+  </> )
 }

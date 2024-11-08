@@ -54,7 +54,7 @@ const Navbar = () => {
     <div className="flex">
       {/* Menú lateral para pantallas pequeñas */}
       <div
-        className={`fixed inset-y-0 left-0 bg-[#b9bfbf] w-64 shadow-lg transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-y-0 left-0 bg-[#ececec] w-64 shadow-lg transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } sm:hidden`}
       >
@@ -62,11 +62,11 @@ const Navbar = () => {
           <h1 className="text-2xl font-bold text-[#0c041c] p-4">
             ImperiumSound
           </h1>
-          <div className="mt-6 space-y-2">
+          <div className="mt-6 space-y-2 font-semibold">
             <NavOption titulo="Inicio" spot={false} ruta="/inicio" />
             <NavOption titulo="Sobre nosotros" spot={false} ruta="/nosotros" />
             <NavOption titulo="Servicios" spot={false} ruta="/servicios" />
-            <NavOption titulo="Contacto" spot={false} ruta="/" />
+            <NavOption titulo="Contacto" spot={false} ruta="/contactanos" />
             <NavOption titulo={loginSon} spot={false} ruta={loginSonRut} />
             {!isLogin ? (
               <NavOption titulo="Registrarse" spot={false} ruta="/register" />
@@ -87,42 +87,24 @@ const Navbar = () => {
 
       {/* Botón para abrir el menú lateral en pantallas pequeñas */}
       <button
-        onClick={toggleMenu}
-        className="p-4 text-white-950 focus:outline-none sm:hidden"
-      >
-        <svg
-          className="h-6 w-6"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
-        </svg>
-      </button>
-
-      {/* Menú superior para pantallas grandes */}
-      <div className="hidden sm:flex sm:items-center sm:justify-between bg-white shadow p-4 w-full">
-        <h1 className="text-2xl font-bold text-gray-800">ImperiumSound</h1>
-        <div className="space-x-4">
-          <NavOption titulo="Inicio" spot={false} ruta="/" />
-          <NavOption titulo="Sobre nosotros" spot={false} ruta="/" />
-          <NavOption titulo="Servicios" spot={false} ruta="/" />
-          <NavOption titulo="Contacto" spot={false} ruta="/" />
-          {!isLogin ? (
-            <NavOption titulo="Registrarse" spot={false} ruta="/register" />
-          ) : (
-            <a onClick={logout} className="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md">
-              Cerrar sesión
-            </a>
-          )}
-        </div>
-      </div>
+  onClick={toggleMenu}
+  className="p-4 text-white focus:outline-none "
+>
+  <svg
+    className="h-6 w-6"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M4 6h16M4 12h16m-7 6h7"
+    />
+  </svg>
+</button>
     </div>
   );
 };

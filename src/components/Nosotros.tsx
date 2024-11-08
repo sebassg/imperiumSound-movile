@@ -1,5 +1,6 @@
 import "../index.css";
 import { Flower2, Handshake, BarChart2, Eye, ArrowUpCircle, Award } from "lucide-react";
+import Navbar from "./Navbar";
 
 const Nosotros = [
   {
@@ -38,12 +39,18 @@ export default function ComponentNosotros() {
   return (
     <>
       <div className="min-h-screen bg-gradient-to-br from-[#0c041c] to-[#10041c] py-8 px-4">
+        <div className="fixed top-0 left-0 w-full z-10">
+      <Navbar></Navbar>
+      </div>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-8 sm:mb-12">
+            Nosotros
+          </h1>
         <div className="max-w-[450px] mx-auto">
           <div className="space-y-8">
             {Nosotros.map((section, index) => (
-              <div key={index} className="flex flex-col items-center text-center">
-                <div className="mb-6">
-                  <div className="w-20 h-20 bg-purple-900 rounded-full flex items-center justify-center">
+              <div key={index} className="flex flex-col items-center text-center relative bg-indigo-950/50 rounded-3xl p-6 backdrop-blur-sm transform transition-transform">
+                <div className="mb-6 w-24 h-24 bg-[#d8d8d8] rounded-full flex items-center justify-center">
+                  <div className="w-20 h-20 bg-[#1c0c34] rounded-full flex items-center justify-center">
                     <section.icon className="w-10 h-10 text-purple-200" />
                   </div>
                 </div>
@@ -60,7 +67,6 @@ export default function ComponentNosotros() {
           </div>
 
           {}
-          <div className="fixed top-20 left-4 w-2 h-2 bg-purple-500 rounded-full opacity-50" />
           <div className="fixed bottom-10 right-6 w-2 h-2 bg-indigo-400 rounded-full opacity-30" />
           <div className="fixed top-40 right-8 w-3 h-3 bg-purple-400 rounded-full opacity-20" />
         </div>

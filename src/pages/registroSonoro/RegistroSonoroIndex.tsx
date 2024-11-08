@@ -42,12 +42,12 @@ function RegistroSonoroIndex() {
 
   return (
     <>
-      <div className="bg-gray-200 min-h-screen flex flex-col">
+      <div className="bg-gray-200 min-h-screen flex flex-col bg-gradient-to-br from-[#0c041c] to-[#10041c]">
         <Navbar />
 
         <div className="flex-grow flex flex-col items-center justify-start p-4">
           {/* Mensaje de bienvenida */}
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">
+          <h1 className="text-2xl font-bold text-white mb-4">
             Bienvenido a los registros sonoros, {nombre}!
           </h1>
 
@@ -55,19 +55,21 @@ function RegistroSonoroIndex() {
           <div className="flex space-x-4 mb-6">
             <button
               onClick={() => setMostrarComponente("misRegistros")}
-              className="bg-purple-600 text-white py-2 px-4 rounded-lg shadow hover:bg-purple-700 transition duration-200"
+              className="bg-[#3c2484] text-white py-2 px-4 rounded-lg shadow hover:bg-purple-700 transition duration-200"
             >
               Mis registros
             </button>
             <button
               onClick={() => setMostrarComponente("crear")}
-              className="bg-blue-600 text-white py-2 px-4 rounded-lg shadow hover:bg-blue-700 transition duration-200"
+              className="bg-[#3c2484] text-white py-2 px-4 rounded-lg shadow hover:bg-blue-700 transition duration-200"
             >
               Crear registro
             </button>
           </div>
           <div>{renderizarComponente()}</div>
         </div>
+        <div className="fixed bottom-10 right-6 w-2 h-2 bg-indigo-400 rounded-full opacity-30" />
+        <div className="fixed top-40 right-8 w-3 h-3 bg-purple-400 rounded-full opacity-20" />
       </div>
     </>
   );

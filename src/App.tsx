@@ -7,6 +7,7 @@ import RegistroSonoroIndex from './pages/registroSonoro/RegistroSonoroIndex.tsx'
 import Redirector from './components/Render.tsx';
 import ServiciosPagina from './pages/servicios/servicios.tsx';
 import NosotrosPagina from './pages/nosotros/nosotros.tsx';
+import ContactoPagina from './pages/contacto/ContactPage.tsx';
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/servicios" element={<ServiciosPagina/>} />
         <Route path="/nosotros" element={<NosotrosPagina/>} /> {}
         <Route path='/login' element={<Login />} />
+        <Route path='/contactanos' element={<ContactoPagina />} />
         <Route path='/register' element={<Register />} />
         <Route path='/registrosSonoros' element={<RegistroSonoroIndex />} />
       </Routes>

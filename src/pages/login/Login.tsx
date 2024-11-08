@@ -19,7 +19,7 @@ function Login() {
 
    
     if (result) {
-      navigate("/home");
+      navigate("/inicio");
     }
   };
 
@@ -29,7 +29,7 @@ function Login() {
 
   return (
     <>
-      <main className="w-screen h-screen">
+      <main className="w-screen h-screen bg-gradient-to-br from-[#0c041c] to-[#10041c]">
         <Navbar />
         <section className="flex items-center justify-center">
           <FormLogin />
