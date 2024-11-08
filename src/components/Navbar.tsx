@@ -54,18 +54,18 @@ const Navbar = () => {
     <div className="flex">
       {/* Menú lateral para pantallas pequeñas */}
       <div
-        className={`fixed inset-y-0 left-0 bg-white w-64 shadow-lg transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-y-0 left-0 bg-[#b9bfbf] w-64 shadow-lg transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } sm:hidden`}
       >
         <div className="flex flex-col h-full">
-          <h1 className="text-2xl font-bold text-gray-800 p-4">
+          <h1 className="text-2xl font-bold text-[#0c041c] p-4">
             ImperiumSound
           </h1>
           <div className="mt-6 space-y-2">
-            <NavOption titulo="Inicio" spot={false} ruta="/" />
-            <NavOption titulo="Sobre nosotros" spot={false} ruta="/" />
-            <NavOption titulo="Servicios" spot={false} ruta="/" />
+            <NavOption titulo="Inicio" spot={false} ruta="/inicio" />
+            <NavOption titulo="Sobre nosotros" spot={false} ruta="/nosotros" />
+            <NavOption titulo="Servicios" spot={false} ruta="/servicios" />
             <NavOption titulo="Contacto" spot={false} ruta="/" />
             <NavOption titulo={loginSon} spot={false} ruta={loginSonRut} />
             {!isLogin ? (
@@ -78,9 +78,9 @@ const Navbar = () => {
           </div>
           <button
             onClick={toggleMenu}
-            className="mt-auto text-gray-600 hover:text-gray-800 p-2"
+            className="mt-auto text-[#0c041c] font-bold text-2xl hover:text-gray-800 p-2"
           >
-            Cerrar
+            X
           </button>
         </div>
       </div>
@@ -88,7 +88,7 @@ const Navbar = () => {
       {/* Botón para abrir el menú lateral en pantallas pequeñas */}
       <button
         onClick={toggleMenu}
-        className="p-4 text-gray-600 focus:outline-none sm:hidden"
+        className="p-4 text-white-950 focus:outline-none sm:hidden"
       >
         <svg
           className="h-6 w-6"

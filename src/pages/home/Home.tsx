@@ -2,7 +2,7 @@
 import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import { validToken } from "../../components/Token";
-
+import PagInicio from "../../components/PagInicio";
 
 interface UserType {
   idUser: string;
@@ -37,9 +37,9 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+    
+      <PagInicio/>
       
-      <h1>hola {userName}</h1>
     </>
   );
 }
