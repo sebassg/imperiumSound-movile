@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/*<Route path="/" element={<Redirector />} />*/}
+        <Route path="/" element={<Redirector />} />
         <Route path="/inicio" element={<Home/>} />
         <Route path="/servicios" element={<ServiciosPagina/>} />
         <Route path="/nosotros" element={<NosotrosPagina/>} /> {}

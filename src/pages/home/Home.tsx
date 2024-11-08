@@ -1,5 +1,4 @@
 
-import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import { validToken } from "../../components/Token";
 import PagInicio from "../../components/PagInicio";
@@ -33,7 +32,6 @@ export default function Home() {
     
   }, []);
 
-  const userName = user?.userName
 
   return (
     <>
