@@ -37,7 +37,7 @@ const Nosotros = [
 export default function ComponentNosotros() {
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-purple-950 to-indigo-950 py-8 px-4">
+      <div className="min-h-screen bg-gradient-to-br from-[#0c041c] to-[#10041c] py-8 px-4">
         <div className="max-w-[450px] mx-auto">
           <div className="space-y-8">
             {Nosotros.map((section, index) => (
